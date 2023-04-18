@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        // want to get rid of the awkward space at the bottom
         VStack {
             TabView {
                 HomeView()
