@@ -1,1 +1,1 @@
-# academy-pinterest-finalproj
+# Final Project - Pinterest
