@@ -12,7 +12,7 @@ struct ContentView: View {
         // want to get rid of the awkward space at the bottom
         VStack {
             TabView {
-                HomeView()
+                HomeView(vm: HomeViewModel())
                     .tabItem{
                         Label("", systemImage: "house.fill")
                     }

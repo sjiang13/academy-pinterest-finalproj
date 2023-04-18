@@ -8,6 +8,9 @@
 import Foundation
 
 struct PhotoItem: Identifiable {
+    // caption
+    // figure out max height - maybe just 3 options (large medium small)
     let id = UUID()
-    var height: Int
+    var height: CGFloat
+    var name: String
 }

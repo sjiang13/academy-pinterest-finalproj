@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @StateObject var vm: HomeViewModel
     var body: some View {
         VStack {
             ZStack{
@@ -31,17 +32,44 @@ struct HomeView: View {
                 }
             }
             ScrollView{
-                HStack{
+                // max HStack width
+                HStack(alignment: .top){
                     LazyVStack(){
-                        ForEach(0 ..< 30){ _ in
-                            Rectangle()
-                                .frame(height: CGFloat.random(in: 20 ... 200))
+                        ForEach(vm.left){ item in
+                            Image("\(item.name)")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(height: item.height)
+                                .cornerRadius(15)
+                            HStack{
+                                Text("\(item.name)")
+                                    .bold()
+                                    .padding(3)
+                                Spacer()
+                                Image(systemName:"ellipsis")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 20, height: 20)
+                                    
+                            }
                         }
                     }
                     LazyVStack(){
-                        ForEach(0 ..< 30){ _ in
-                            Rectangle()
-                                .frame(height: CGFloat.random(in: 20 ... 200))
+                        ForEach(vm.right){ item in
+                            Image("\(item.name)")
+                                .resizable()
+                                .scaledToFill()
+                                .frame(height: item.height)
+                                .cornerRadius(15)
+                            HStack{
+                                Text("\(item.name)")
+                                    .bold()
+                                Spacer()
+                                Image(systemName:"ellipsis")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 20, height: 20)
+                            }
                         }
                     }
 
@@ -56,6 +84,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(vm: HomeViewModel())
     }
 }
