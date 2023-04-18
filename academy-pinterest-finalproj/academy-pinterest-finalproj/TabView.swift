@@ -11,15 +11,31 @@ struct ContentView: View {
     var body: some View {
         // want to get rid of the awkward space at the bottom
         VStack {
-            TabView {
-                HomeView(vm: HomeViewModel())
-                    .tabItem{
-                        Label("", systemImage: "house.fill")
-                    }
-                SearchView()
-                    .tabItem {
-                        Label("", systemImage: "magnifyingglass")
-                    }
+            HStack{
+                
+                TabView {
+                    HomeView(vm: HomeViewModel())
+                        .tabItem{
+                            Label("", systemImage: "house.fill")
+                        }
+                    SearchView()
+                        .tabItem {
+                            Label("", systemImage: "magnifyingglass")
+                        }
+                    NewItemView()
+                        .tabItem{
+                            Label("", systemImage: "plus")
+                        }
+                    MessageView()
+                        .tabItem{
+                            Label("", systemImage: "ellipsis.message.fill")
+                        }
+                    ProfileView()
+                        .tabItem{
+                            //circle placeholder
+                            Label("", systemImage: "circle")
+                        }
+                }
             }
         }
     }

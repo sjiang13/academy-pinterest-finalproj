@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var vm: HomeViewModel
+    var pinWidth = UIScreen.main.bounds.size.width / 2 - 15
     var body: some View {
         VStack {
             ZStack{
@@ -35,40 +36,60 @@ struct HomeView: View {
                 // max HStack width
                 HStack(alignment: .top){
                     LazyVStack(){
-                        ForEach(vm.left){ item in
-                            Image("\(item.name)")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(height: item.height)
-                                .cornerRadius(15)
-                            HStack{
-                                Text("\(item.name)")
-                                    .bold()
-                                    .padding(3)
-                                Spacer()
-                                Image(systemName:"ellipsis")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 20, height: 20)
-                                    
+                        //navigation link doesn't work inside of a ForEach
+                            ForEach(vm.left){ item in
+                                NavigationLink(destination: PhotoView(item: item)){
+                                    VStack{
+                                        Image("\(item.name)")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: pinWidth)
+                                            .cornerRadius(15)
+                                            .foregroundColor(.black)
+                                        HStack{
+                                            Text("\(item.name)")
+                                                .bold()
+                                                .foregroundColor(.black)
+                                                .padding(3)
+                                            Spacer()
+                                            Image(systemName:"ellipsis")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .foregroundColor(.black)
+                                                .frame(width: 20, height: 20)
+                                                .padding(.trailing, 10)
+                                        }
+                                    }
+                                
                             }
                         }
                     }
                     LazyVStack(){
-                        ForEach(vm.right){ item in
-                            Image("\(item.name)")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(height: item.height)
-                                .cornerRadius(15)
-                            HStack{
-                                Text("\(item.name)")
-                                    .bold()
-                                Spacer()
-                                Image(systemName:"ellipsis")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 20, height: 20)
+                        //navigation link doesn't work inside of a ForEach
+                            ForEach(vm.right){ item in
+                                NavigationLink(destination: PhotoView(item: item)){
+                                    VStack{
+                                        Image("\(item.name)")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: pinWidth)
+                                            .cornerRadius(15)
+                                            .foregroundColor(.black)
+                                        HStack{
+                                            Text("\(item.name)")
+                                                .bold()
+                                                .foregroundColor(.black)
+                                                .padding(3)
+                                            Spacer()
+                                            Image(systemName:"ellipsis")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .foregroundColor(.black)
+                                                .frame(width: 20, height: 20)
+                                                .padding(.trailing, 10)
+                                        }
+                                    }
+                                
                             }
                         }
                     }
@@ -87,3 +108,4 @@ struct HomeView_Previews: PreviewProvider {
         HomeView(vm: HomeViewModel())
     }
 }
+

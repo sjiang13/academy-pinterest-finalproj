@@ -8,15 +8,18 @@
 import SwiftUI
 
 struct PhotoView: View {
+    var item: PhotoItem
+//    var profile: ProfileItem
     var body: some View {
         ZStack{
             HStack (alignment: .top) {
                 VStack (alignment: .leading){
-                    Image("cat")
+                    Image("\(item.name)")
                         .resizable()
                         .scaledToFit()
                     HStack{
-                        Image("hair")
+                        // profile
+                        Image("\(item.name)")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 60, height: 60)
@@ -63,6 +66,6 @@ struct PhotoView: View {
 
 struct PhotoView_Previews: PreviewProvider {
     static var previews: some View {
-        PhotoView()
+        PhotoView(item: PhotoItem(height: 20, name: "zine"))
     }
 }
