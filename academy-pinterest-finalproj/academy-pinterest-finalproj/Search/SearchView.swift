@@ -13,7 +13,20 @@ import SwiftUI
 // set of photos
 struct SearchView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            ScrollView{
+                
+                    VStack{
+                        Image("food")
+                            .resizable()
+                            .scaledToFill()
+                        Spacer()
+                    }
+                    
+                
+            }
+        }
+        
     }
 }
 

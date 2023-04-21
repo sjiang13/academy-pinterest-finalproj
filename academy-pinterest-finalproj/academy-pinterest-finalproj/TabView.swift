@@ -26,7 +26,7 @@ struct ContentView: View {
                         .tabItem{
                             Label("", systemImage: "plus")
                         }
-                    MessageView()
+                    NotificationView()
                         .tabItem{
                             Label("", systemImage: "ellipsis.message.fill")
                         }

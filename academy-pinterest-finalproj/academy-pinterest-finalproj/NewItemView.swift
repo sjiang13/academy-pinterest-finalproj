@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NewItemView: View {
-    @State private var showingSheet = false
+    @State private var showingSheet = true
     var body: some View {
         HStack (alignment: .bottom){
             VStack {
@@ -17,6 +17,7 @@ struct NewItemView: View {
                 HStack{
                     Image(systemName: "square.filled.on.square")
                 }
+                
             }
         }
     }

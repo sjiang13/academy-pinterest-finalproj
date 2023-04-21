@@ -11,3 +11,4 @@ class HomeViewModel: ObservableObject {
     @Published var right: [PhotoItem] = [PhotoItem(height: 253, name: "necklace"), PhotoItem(height: 377, name: "hk"),PhotoItem(height: 474, name: "zine")]
     
 }
+

@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-struct PhotoView: View {
+struct IndividualPhotoView: View {
     var item: PhotoItem
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 //    var profile: ProfileItem
     var body: some View {
         ZStack{
@@ -44,10 +45,17 @@ struct PhotoView: View {
             }
             VStack{
                 HStack (alignment: .top){
-                    Image(systemName: "chevron.backward")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 24, height: 24)
+                    Button{
+                        self.presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        Image(systemName: "chevron.backward")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(.black)
+                    }
+                    .navigationBarBackButtonHidden(true)
+                        
                     Spacer()
                     Image(systemName: "ellipsis")
                         .resizable()
@@ -66,6 +74,6 @@ struct PhotoView: View {
 
 struct PhotoView_Previews: PreviewProvider {
     static var previews: some View {
-        PhotoView(item: PhotoItem(height: 20, name: "zine"))
+        IndividualPhotoView(item: PhotoItem(height: 20, name: "zine"))
     }
 }

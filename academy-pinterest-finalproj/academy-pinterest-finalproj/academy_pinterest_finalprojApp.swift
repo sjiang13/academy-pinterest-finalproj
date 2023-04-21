@@ -11,7 +11,7 @@ import SwiftUI
 struct academy_pinterest_finalprojApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OnOpenView()
         }
     }
 }
