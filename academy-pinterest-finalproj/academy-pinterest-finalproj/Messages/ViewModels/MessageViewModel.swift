@@ -10,11 +10,18 @@ private var contactMessage = "Say hello 😀"
 class MessageViewModel: ObservableObject{
     
     @Published var messages: [Message] = [
-        Message(name: "Pinterest", messagePrev: "Send a Pin!", image: "hair")
+        Message(name: "Pinterest", messagePrev: "Send a Pin!", image: "pinterest")
     ]
     @Published var contacts: [Message] = [
-        Message(name: "Bompu", messagePrev: contactMessage, image: "necklace"),
-        Message(name: "maia", messagePrev: contactMessage, image: "hk"),
-        Message(name: "zoe", messagePrev: contactMessage, image: "necklace")
+        Message(name: "vivian", messagePrev: contactMessage, image: "girl"),
+        Message(name: "kathleen", messagePrev: contactMessage, image: "hair"),
+        Message(name: "Sophie", messagePrev: contactMessage, image: "flower"),
+        Message(name: "SLKDJLKFJ", messagePrev: contactMessage, image: "cloth"),
+        Message(name: "Caroline", messagePrev: contactMessage, image: "room2"),
+        Message(name: "pizza", messagePrev: contactMessage, image: "food"),
+        Message(name: "I <3 pinterest", messagePrev: contactMessage, image: "pasta"),
+        Message(name: "sunny", messagePrev: contactMessage, image: "zine"),
+        Message(name: "bridget", messagePrev: contactMessage, image: "girl"),
+        Message(name: "zoe", messagePrev: contactMessage, image: "COW!!!!")
     ]
 }

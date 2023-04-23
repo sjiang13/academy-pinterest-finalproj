@@ -12,16 +12,28 @@ import SwiftUI
 // title, chevron
 // set of photos
 struct SearchView: View {
+    @State private var searchString: String = ""
     var body: some View {
         ZStack{
             ScrollView{
-                
                     VStack{
-                        Image("food")
+                        HStack{
+                            Image(systemName: "magnifyingglass")
+                            Text("Search Pinterest")
+                            Spacer()
+                            Image(systemName: "camera.fill")
+                        }
+                        .padding(.horizontal)
+                        .padding(.vertical, 8)
+                    .background(Color.gray.clipShape(RoundedRectangle(cornerRadius:20)))
+                    .padding(.horizontal)
+                    
+                        Image("search")
                             .resizable()
-                            .scaledToFill()
+                            .scaledToFit()
                         Spacer()
                     }
+                    
                     
                 
             }

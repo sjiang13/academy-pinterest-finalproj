@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var vm: HomeViewModel
+    
     var pinWidth = UIScreen.main.bounds.size.width / 2 - 15
     var body: some View {
 

@@ -9,40 +9,11 @@ import SwiftUI
 
 struct IndividualPhotoView: View {
     var item: PhotoItem
+    @State private var add = false
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 //    var profile: ProfileItem
     var body: some View {
-        ZStack{
-            HStack (alignment: .top) {
-                VStack (alignment: .leading){
-                    Image("\(item.name)")
-                        .resizable()
-                        .scaledToFit()
-                    HStack{
-                        // profile
-                        Image("\(item.name)")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 60, height: 60)
-                            .clipShape(Circle())
-                            .padding()
-                        VStack (alignment: .leading){
-                            Text("username")
-                                .bold()
-                                .frame(alignment: .leading)
-                            Text("356 followers")
-                            
-                        }
-                        // change to button later
-                        Spacer()
-                        Text("Follow")
-                            .bold()
-                            .background(.gray)
-                            .padding()
-                        
-                    }
-                }
-            }
+        VStack{
             VStack{
                 HStack (alignment: .top){
                     Button{
@@ -55,7 +26,6 @@ struct IndividualPhotoView: View {
                             .foregroundColor(.black)
                     }
                     .navigationBarBackButtonHidden(true)
-                        
                     Spacer()
                     Image(systemName: "ellipsis")
                         .resizable()
@@ -63,17 +33,53 @@ struct IndividualPhotoView: View {
                         .frame(width: 24, height: 24)
                 }
                 .padding()
-                Spacer()
+                    Image("\(item.name)")
+                        .resizable()
+                        .scaledToFit()
+                        .clipShape(RoundedRectangle(cornerRadius: 30))
+                    HStack{
+                        // profile
+                        Image("\(item.pfp)")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 60, height: 60)
+                            .clipShape(Circle())
+                            .padding()
+                        VStack (alignment: .leading){
+                            Text("\(item.username)")
+                                .bold()
+                                .frame(alignment: .leading)
+                            Text("\(item.followers) followers")
+                            
+                        }
+                        // change to button later
+                        Spacer()
+                        Text("Follow")
+                            .foregroundColor(.white)
+                            .bold()
+                            .padding()
+                            .background(Color.black.clipShape(RoundedRectangle(cornerRadius:30)))
+                            .padding(.horizontal, 20)
+                        
+                        
+                        
+                    }
+                Button{
+                    add = true
+                } label: {
+                    Text("Save pin to new folder?")
+                        .font(.subheadline)
+                        .bold()
+                }
+                .buttonStyle(.plain)
+                    Spacer()
             }
-            
-
-
         }
     }
 }
 
 struct PhotoView_Previews: PreviewProvider {
     static var previews: some View {
-        IndividualPhotoView(item: PhotoItem(height: 20, name: "zine"))
+        IndividualPhotoView(item: PhotoItem(height: 474, name: "cat", username: "aksdljf;alkds", pfp: "jb"))
     }
 }

@@ -33,7 +33,8 @@ struct ContentView: View {
                     ProfileView()
                         .tabItem{
                             //circle placeholder
-                            Label("", systemImage: "circle")
+                            Label("", systemImage: "person.fill")
+                                
                         }
                 }
             }

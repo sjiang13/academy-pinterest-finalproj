@@ -20,13 +20,11 @@ struct OnOpenView: View {
                     .ignoresSafeArea()
                 VStack{
                     VStack{
-                        Image("COW!!!!")
+                        Image("pinterest")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 200, height: 200)
-                        Text("CollegeWallet")
-                            .font(Font.custom("Thonburi-Bold", size: 26))
-                            .foregroundColor(Color("splash-text"))
+                        
                     }
                     .scaleEffect(size)
                     .opacity(opacity)

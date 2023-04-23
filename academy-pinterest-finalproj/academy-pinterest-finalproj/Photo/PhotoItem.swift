@@ -13,4 +13,7 @@ struct PhotoItem: Identifiable {
     let id = UUID()
     var height: CGFloat
     var name: String
+    var username: String = "username"
+    var pfp: String = "cat"
+    var followers: Int = 0
 }
