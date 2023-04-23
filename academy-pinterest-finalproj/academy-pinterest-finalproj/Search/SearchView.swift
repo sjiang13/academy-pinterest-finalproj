@@ -16,6 +16,7 @@ struct SearchView: View {
     @StateObject var vm = SearchModel()
     var body: some View {
         ZStack{
+            
             ScrollView{
                     VStack{
                         HStack{
