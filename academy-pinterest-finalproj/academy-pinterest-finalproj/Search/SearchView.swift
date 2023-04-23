@@ -19,7 +19,7 @@ struct SearchView: View {
             ScrollView{
                     VStack{
                         HStack{
-                            Image(systemName: "magnifyingglass")
+                            Image( systemName: "magnifyingglass")
                             Text("Search Pinterest")
                             Spacer()
                             Image(systemName: "camera.fill")
