@@ -13,6 +13,7 @@ import SwiftUI
 // set of photos
 struct SearchView: View {
     @State private var searchString: String = ""
+    @StateObject var vm = SearchModel()
     var body: some View {
         ZStack{
             ScrollView{
@@ -27,11 +28,12 @@ struct SearchView: View {
                         .padding(.vertical, 8)
                     .background(Color.gray.clipShape(RoundedRectangle(cornerRadius:20)))
                     .padding(.horizontal)
-                    
-                        Image("search")
-                            .resizable()
-                            .scaledToFit()
                         Spacer()
+                        VStack{
+                            ForEach(vm.searchList){ item in
+                                IndividualSearchItemView(item: item)
+                            }
+                        }
                     }
                     
                     
